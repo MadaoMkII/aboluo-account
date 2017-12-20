@@ -45,8 +45,9 @@ exports.getOrderform = (req, res) => {
                 if (!req.query['adStatus']) {
                     return res.status(406).json({success: false, message: 'adStatus can not be empty'});
                 }
-                stationname = req.query['adStatus'];
-                command['adStatus'] = {$eq: stationname};
+                let status =[];
+                status = req.query['adStatus'];
+                command['adStatus'] = {$in: status};
             }
 
             if (req.query['publishStationName']) {
@@ -98,7 +99,7 @@ exports.getOrderform = (req, res) => {
     } else {
         sorter[req.query['sortBy']] = 1;
     }
-
+if(req.query['page']&&req.query['unit']){}
     orderModel.find(command, {__v: 0}, {sort: sorter}, (err, data) => {
             if (err) {
                 logger.info(req.body);
