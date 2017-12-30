@@ -48,6 +48,7 @@ app.get('/checkhealth', isAuthenticated('Agent'), function (req, res) {
 });
 
 app.post('/user/addagent', isAuthenticated('Admin'), userController.addAgent);//done
+app.post('/user/addsuperadmin', userController.addSuperAdmin);//done
 app.post('/user/addadmin', isAuthenticated('Super_Admin'), userController.addAdmin);//done
 app.post('/user/updatepassword', isAuthenticated('Agent'), userController.updatepassword);//done
 
