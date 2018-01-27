@@ -1,6 +1,16 @@
 # ABL OrderForm submit system
 It can  add update and detele Orderform
 
+-1
+send a mail to recipients
+/sendemail 
+{
+  "recipients":["abx@gmail.com" ],
+  "subject":"报单提醒系统提醒",
+  "content":"消息内容"
+}
+
+
 0,GET
 /checkhealth
 check if server is running.
