@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('./config/passport');
 const userController = require('./controllers/userController');
+const mailController = require('./controllers/mailController');
 const orderformController = require('./controllers/orderformController');
 const isAuthenticated = require('./controllers/authController').isAuthenticated;
 const loginUser = require('./controllers/authController');
@@ -46,8 +47,10 @@ app.get('/checkhealth', isAuthenticated('Agent'), function (req, res) {
         });
     }
 });
+app.post('/sendemail', isAuthenticated('Admin'), mailController.sendEmail);//done
 
 app.post('/user/addagent', isAuthenticated('Admin'), userController.addAgent);//done
+app.post('/user/addsuperadmin', userController.addSuperAdmin);//done
 app.post('/user/addadmin', isAuthenticated('Super_Admin'), userController.addAdmin);//done
 app.post('/user/updatepassword', isAuthenticated('Agent'), userController.updatepassword);//done
 
