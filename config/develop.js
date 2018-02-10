@@ -9,6 +9,6 @@ module.exports = {
         saveUninitialized: true
     },
     saltword: 'ABL',
-    mailusername: "baodan@usaboluo.com",
-    mailpassword: "123baoDAN"
+    mailusername: "hidden",
+    mailpassword: "hidden"
 };
